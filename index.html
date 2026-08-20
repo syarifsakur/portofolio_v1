@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Syarif Mohammad Syakur - Portofolio</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #0ea5e9;
+        --secondary-color: #0f172a;
+        --bg-color: #f8fafc;
+        --text-color: #334155;
+        --light-text: #64748b;
+        --card-bg: #ffffff;
+        --border-color: #e2e8f0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      nav {
+        background: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+        backdrop-filter: blur(14px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .nav-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        min-height: 4.5rem;
+        padding: 0.75rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+
+      .logo-mark {
+        display: inline-grid;
+        place-items: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        margin-right: 0.55rem;
+        border-radius: 8px;
+        background: var(--primary-color);
+        color: #fff;
+        font-size: 0.9rem;
+        box-shadow: 0 5px 12px rgba(14, 165, 233, 0.25);
+      }
+
+      .logo span {
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .nav-links a {
+        display: block;
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        padding: 0.55rem 0.85rem;
+        border-radius: 7px;
+        transition:
+          color 0.3s,
+          background-color 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--primary-color);
+        background-color: #e0f2fe;
+      }
+
+      .menu-toggle {
+        display: none;
+        border: 1px solid var(--border-color);
+        border-radius: 7px;
+        background: var(--card-bg);
+        color: var(--secondary-color);
+        cursor: pointer;
+        font-size: 1.1rem;
+        padding: 0.55rem 0.7rem;
+      }
+
+      .menu-toggle:hover,
+      .menu-toggle:focus-visible {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+
+      .menu-toggle:focus-visible,
+      .nav-links a:focus-visible {
+        outline: 3px solid rgba(14, 165, 233, 0.3);
+        outline-offset: 2px;
+      }
+
+      /* Container */
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      section {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        color: var(--secondary-color);
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+        margin: 0.5rem auto 0;
+        border-radius: 2px;
+      }
+
+      /* Hero Section */
+      #hero {
+        margin-top: 4rem;
+        padding: 5rem 0 4rem;
+      }
+
+      .hero-content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 250px;
+        align-items: center;
+        gap: 3rem;
+        text-align: left;
+      }
+
+      .profile-photo {
+        width: 250px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        object-position: 52% 44%;
+        border: 8px solid #fff;
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 1px var(--border-color),
+          0 18px 35px rgba(15, 23, 42, 0.15);
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .hero-copy {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+        color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+
+      .hero-contact {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .hero-contact a {
+        color: var(--light-text);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.3s;
+      }
+
+      .hero-contact a:hover {
+        color: var(--primary-color);
+      }
+
+      /* About Section */
+      .about-text {
+        font-size: 1.1rem;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        color: var(--text-color);
+      }
+
+      /* Card Layout */
+      .card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        border: 1px solid var(--border-color);
+        border-left: 4px solid var(--primary-color);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .card-title {
+        font-size: 1.25rem;
+        color: var(--secondary-color);
+        font-weight: 600;
+      }
+
+      .card-date {
+        color: var(--primary-color);
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+
+      .card-subtitle {
+        font-weight: 600;
+        color: var(--light-text);
+        margin-bottom: 1rem;
+      }
+
+      .card-list {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .card-list li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Tags */
+      .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .tag {
+        background-color: #e0f2fe;
+        color: var(--primary-color);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      /* Skills Layout */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .skills-category h3 {
+        margin-bottom: 1rem;
+        color: var(--secondary-color);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--secondary-color);
+        color: #fff;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 3rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-container {
+          padding: 0.7rem 1.25rem;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: calc(100% + 0.5rem);
+          left: 1rem;
+          right: 1rem;
+          display: grid;
+          gap: 0.25rem;
+          padding: 0.65rem;
+          background: var(--card-bg);
+          border: 1px solid var(--border-color);
+          border-radius: 10px;
+          box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(-8px);
+          transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
+        }
+
+        .nav-links.open {
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+
+        .nav-links a {
+          padding: 0.8rem 0.9rem;
+        }
+
+        .hero-title {
+          font-size: 2.2rem;
+        }
+
+        #hero {
+          padding: 3.5rem 0 3rem;
+        }
+
+        .hero-content {
+          display: flex;
+          flex-direction: column-reverse;
+          gap: 1.75rem;
+          text-align: center;
+        }
+
+        .profile-photo {
+          width: min(200px, 60vw);
+        }
+
+        .hero-contact {
+          justify-content: center;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        .card-header {
+          flex-direction: column;
+        }
+        .card-date {
+          margin-top: 0.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-container">
+        <a class="logo" href="#hero" aria-label="Kembali ke beranda">
+          <span class="logo-mark">SM</span><span>Syarif.</span>
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#hero">Beranda</a></li>
+          <li><a href="#about">Profil</a></li>
+          <li><a href="#experience">Pengalaman</a></li>
+          <li><a href="#education">Pendidikan</a></li>
+          <li><a href="#skills">Keahlian</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- Hero Section -->
+      <section id="hero">
+        <div class="hero-content">
+          <div class="hero-copy">
+            <h1 class="hero-title">Syarif Mohammad Syakur</h1>
+            <h2 class="hero-subtitle">Software Engineer & IT Specialist</h2>
+
+            <div class="hero-contact">
+              <a href="mailto:syarifsakur@gmail.com"
+                ><i class="fas fa-envelope"></i> syarifsakur@gmail.com</a
+              >
+              <a href="tel:+6282235059316"
+                ><i class="fas fa-phone"></i> +62 822-3505-9316</a
+              >
+              <a href="https://linkedin.com/in/syarifsakur" target="_blank"
+                ><i class="fab fa-linkedin"></i> linkedin.com/in/syarifsakur</a
+              >
+            </div>
+          </div>
+          <img
+            class="profile-photo"
+            src="logo.jpg"
+            alt="Foto profil Syarif Mohammad Syakur"
+          />
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <h2 class="section-title">Profil Profesional</h2>
+        <p class="about-text">
+          Lulusan S1 Teknologi Informasi yang berdedikasi tinggi dan memiliki
+          keahlian komprehensif dalam pengembangan perangkat lunak serta
+          infrastruktur teknologi informasi. Memiliki rekam jejak akademik yang
+          sangat baik sebagai <b>Wisudawan Terbaik</b> dengan <b>IPK 3.94</b>.
+          Berpengalaman dalam merancang sistem backend, manajemen basis data,
+          serta mengoptimalkan prosedur operasional. Selalu antusias untuk
+          memecahkan masalah kompleks dan berkontribusi dalam tim yang dinamis
+          untuk mencapai inovasi teknologi.
+        </p>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience">
+        <h2 class="section-title">Pengalaman & Proyek</h2>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Sistem Informasi Desa Sikara Tobata</h3>
+            <span class="card-date">Mei 2025 - Jul 2025</span>
+          </div>
+          <div class="card-subtitle">Backend Engineer</div>
+          <ul class="card-list">
+            <li>
+              Mengembangkan dan memelihara Application Programming Interface
+              (API) untuk mendukung berbagai fungsionalitas inti sistem desa.
+            </li>
+            <li>
+              Merancang arsitektur dan mengelola database untuk memastikan
+              penyimpanan dan pemrosesan data yang aman serta efisien.
+            </li>
+            <li>
+              Berkolaborasi erat dengan tim front-end untuk memastikan
+              kelancaran integrasi sistem dan menyajikan pengalaman pengguna
+              (UX) yang optimal dan responsif.
+            </li>
+          </ul>
+          <div class="tags-container">
+            <span class="tag">Express.js</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">REST API</span>
+            <span class="tag">Database Design</span>
+            <span class="tag">System Integration</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Kantor Imigrasi Kelas I TPI Palu</h3>
+            <span class="card-date">Nov 2025 - Mei 2026</span>
+          </div>
+          <div class="card-subtitle">Pengelola Sistem</div>
+          <ul class="card-list">
+            <li>
+              Menyusun dan mengelola Standard Operating Procedure (SOP) dan alur
+              sistem administrasi instansi.
+            </li>
+            <li>
+              Memantau pelaksanaan prosedur operasional untuk memastikan
+              efisiensi dan kepatuhan terhadap regulasi.
+            </li>
+            <li>
+              Melakukan audit sistem kerja, mengusulkan perbaikan berbasis
+              pemantauan, serta menyusun laporan evaluasi efektivitas sistem
+              secara komprehensif.
+            </li>
+          </ul>
+          <div class="tags-container">
+            <span class="tag">System Administration</span>
+            <span class="tag">Workflow Optimization</span>
+            <span class="tag">Data Evaluation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Honda Anugerah Perdana (Imam Bonjol)</h3>
+            <span class="card-date">Agt 2025 - Okt 2025</span>
+          </div>
+          <div class="card-subtitle">Admin</div>
+          <ul class="card-list">
+            <li>
+              Melakukan validasi data diri konsumen untuk memastikan keakuratan
+              informasi operasional.
+            </li>
+            <li>
+              Merancang materi promosi visual (flyer event dan promo dealer)
+              untuk meningkatkan visibilitas produk.
+            </li>
+            <li>
+              Mengelola administrasi dan inventarisasi spare part, mencakup
+              pendataan, pencatatan pengeluaran, serta pengadaan barang.
+            </li>
+          </ul>
+          <div class="tags-container">
+            <span class="tag">Data Entry</span>
+            <span class="tag">Inventory Management</span>
+            <span class="tag">Graphic Content</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Organization Section -->
+      <section id="education">
+        <h2 class="section-title">Pendidikan & Organisasi</h2>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Universitas Tadulako</h3>
+            <span class="card-date">Agt 2021 - Jan 2025</span>
+          </div>
+          <div class="card-subtitle">
+            S1 - Teknologi Informasi | IPK: 3.94 / 4.00
+          </div>
+          <ul class="card-list">
+            <li>
+              <b>Penghargaan:</b> Lulus Tepat Waktu dan dianugerahi gelar
+              <b>Wisudawan Terbaik</b> pada wisuda ke-132 Universitas Tadulako
+              Tahun 2025.
+            </li>
+            <li>
+              Aktif dalam kegiatan akademik dan berbagai proyek yang mengasah
+              kemampuan problem-solving dan kolaborasi tim.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">
+              Himpunan Mahasiswa Teknologi Informasi (HMTI) UNTAD
+            </h3>
+            <span class="card-date">2022 - 2025</span>
+          </div>
+          <div class="card-subtitle">
+            Wakil Ketua Himpunan (Periode Kepengurusan 2024)
+          </div>
+          <ul class="card-list">
+            <li>
+              Memimpin organisasi dan menginisiasi berbagai proyek komunitas
+              untuk mendukung pengembangan diri anggota.
+            </li>
+            <li>
+              Mengembangkan keterampilan leadership melalui manajemen waktu yang
+              efektif dan pengambilan keputusan strategis dalam situasi yang
+              dinamis.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills">
+        <h2 class="section-title">Keterampilan Inti</h2>
+
+        <div class="card">
+          <div class="skills-grid">
+            <div class="skills-category">
+              <h3>
+                <i
+                  class="fas fa-laptop-code"
+                  style="color: var(--primary-color)"
+                ></i>
+                Technical Skills
+              </h3>
+              <div class="tags-container" style="margin-top: 0">
+                <span class="tag">HTML & CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">React</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Database Management</span>
+                <span class="tag">System Development</span>
+                <span class="tag">Microsoft Office</span>
+                <span class="tag">Data Entry</span>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <h3>
+                <i class="fas fa-users" style="color: var(--primary-color)"></i>
+                Soft Skills
+              </h3>
+              <div class="tags-container" style="margin-top: 0">
+                <span class="tag">Problem Solving</span>
+                <span class="tag">Critical Thinking</span>
+                <span class="tag">Leadership</span>
+                <span class="tag">Team Collaboration</span>
+                <span class="tag">Time Management</span>
+                <span class="tag">Bilingual (ID/EN)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Syarif Mohammad Syakur. All Rights Reserved.</p>
+    </footer>
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const navAnchors = document.querySelectorAll(".nav-links a");
+
+      function closeMenu() {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+        menuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+      }
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Tutup menu navigasi" : "Buka menu navigasi",
+        );
+        menuToggle.innerHTML = isOpen
+          ? '<i class="fas fa-xmark" aria-hidden="true"></i>'
+          : '<i class="fas fa-bars" aria-hidden="true"></i>';
+      });
+
+      navAnchors.forEach((anchor) =>
+        anchor.addEventListener("click", closeMenu),
+      );
+
+      const sections = document.querySelectorAll("main section[id]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navAnchors.forEach((anchor) => {
+                anchor.classList.toggle(
+                  "active",
+                  anchor.getAttribute("href") === `#${entry.target.id}`,
+                );
+              });
+            }
+          });
+        },
+        { rootMargin: "-30% 0px -60%", threshold: 0 },
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    </script>
+  </body>
+</html>
