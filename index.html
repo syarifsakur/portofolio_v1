@@ -226,6 +226,33 @@
         color: var(--primary-color);
       }
 
+      .cv-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.9rem 1.4rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--primary-color), #0284c7);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        box-shadow: 0 12px 24px rgba(14, 165, 233, 0.22);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .cv-button:hover,
+      .cv-button:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 26px rgba(14, 165, 233, 0.28);
+      }
+
+      .cv-button:focus-visible {
+        outline: 3px solid rgba(14, 165, 233, 0.3);
+        outline-offset: 3px;
+      }
+
       /* About Section */
       .about-text {
         font-size: 1.1rem;
@@ -389,6 +416,12 @@
         .hero-contact {
           justify-content: center;
         }
+
+        .cv-button {
+          width: 100%;
+          justify-content: center;
+        }
+
         .skills-grid {
           grid-template-columns: 1fr;
         }
@@ -446,6 +479,11 @@
                 ><i class="fab fa-linkedin"></i> linkedin.com/in/syarifsakur</a
               >
             </div>
+
+            <a class="cv-button" href="./cv fix it.pdf" download>
+              <i class="fas fa-download" aria-hidden="true"></i>
+              Download CV
+            </a>
           </div>
           <img
             class="profile-photo"
